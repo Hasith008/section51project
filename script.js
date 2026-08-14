@@ -1,24 +1,34 @@
-const sum = (a, b) => a + b;
-console.log("output of sum is")
-console.log(sum(2, 3)); // 5
-document.writeln("sum is" + sum(2,3) +"<br>");
-const sub = (c, d) => c - d;
-console.log("output of sub is")
-console.log(sub(2, 3)); // 5
-document.writeln("sub is" + sub(2,3) +"<br>");
-const mul = (e, f) => e * f;
-console.log("output of mul is")
-console.log(mul(2, 3)); // 6
-document.writeln("mul is" + mul(2,3)+"<br>");
-const div = (g, h) => g / h;
-console.log("output of div is")
-console.log(div(2, 3)); // 5
-document.writeln("div is" + div(2,3)+"<br>");
-const mod = (i, j) => i % j;
-console.log("output of mod is")
-console.log(mod(2, 3));
-document.writeln("mod is" + mod(2,3)+"<br>");
-const pow = (k, l) => k ** l;
-console.log("output of pow is")
-console.log(pow(2, 3));
-document.writeln("pow is" + pow(2,3)+"<br>");
+<img 
+src="https://i.ndtvimg.com/i/2017-05/kl-university_650x400_4149388361
+3.jpg" /> 
+<script> 
+const myImage = document.querySelector("img"); 
+const reqHeaders = new Headers(); 
+// a cached response is okay unless it's more than a week old 
+reqHeaders.set("Cache-Control", "max-age=604800"); 
+const options = { 
+headers: reqHeaders, 
+}; 
+// pass init as an "options" object with our headers 
+const req = new 
+Request("https://i.ndtvimg.com/i/2017-05/kl-university_650x400_414938
+83613.jpg", options); 
+fetch(req) 
+.then((response) => { 
+if (!response.ok) { 
+throw new Error(`HTTP error, status = 
+${response.status}`); 
+} 
+return response.blob(); 
+}) 
+.then((blob) => { 
+const objectURL = URL.createObjectURL(blob); 
+myImage.src = objectURL; 
+}) 
+.catch((error) => { 
+const p = document.createElement("p"); 
+p.appendChild(document.createTextNode(`Error: 
+${error.message}`)); 
+document.body.insertBefore(p, myImage); 
+}); 
+</script>
