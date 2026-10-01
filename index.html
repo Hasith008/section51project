@@ -1,13 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>react-app</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Routine Task Remainder & Snoozer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <header class="header">
+      <h1>🔔 Routine Snoozer</h1>
+      <span class="badge">Daily Automated</span>
+    </header>
+
+    <!-- Task Form -->
+    <form id="taskForm" class="task-form">
+      <div class="form-group">
+        <label for="taskTitle">Task Name</label>
+        <input type="text" id="taskTitle" placeholder="e.g. Drink Water, Take a Break" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="taskTime">Reminder Time</label>
+          <input type="time" id="taskTime" required>
+        </div>
+        <button type="submit" id="addBtn">+ Add Task</button>
+      </div>
+    </form>
+
+    <!-- Task List -->
+    <div class="task-section">
+      <h2>Your Daily Tasks</h2>
+      <ul id="taskList" class="task-list"></ul>
+    </div>
+  </div>
+
+  <!-- Snooze Pop-up Modal -->
+  <div id="alertModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="bell-icon">🔔</div>
+      <h3>Task Reminder!</h3>
+      <p id="alertTaskTitle">Time to do your task</p>
+      <p class="subtext">Snooze for later or mark as complete:</p>
+
+      <div class="snooze-buttons">
+        <button onclick="snoozeTask(5)">+5m</button>
+        <button onclick="snoozeTask(10)">+10m</button>
+        <button onclick="snoozeTask(15)">+15m</button>
+      </div>
+
+      <button id="completeBtn" class="btn-primary">Mark as Done</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
